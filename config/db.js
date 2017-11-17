@@ -1,5 +1,6 @@
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/divideandcostco');
+mongoose.Promise = global.Promise;
+mongoose.connect(process.env.DATABASE_URL, {useMongoClient: true});
 
 var db = mongoose.connection;
 
