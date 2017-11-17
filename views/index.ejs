@@ -5,36 +5,36 @@
   <title>DIVIDE AND COSTCO</title>
   <!-- Google Icon Fonts used by Materialize -->
   <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!-- Materialize CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
   <link rel='stylesheet' href='/stylesheets/style.css' />
-  <!-- Materialize CSS Framework -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
-
+  <!--Let browser know website is optimized for mobile-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
 
 <body>
-  <div class="navbar-fixed">
-    <nav>
-      <div class="nav-wrapper">
-        <a href="" class="brand-logo left">Divide and Costco</a>
-        <ul class="right">
-          <% if (user) { %>
-            <li>
-              <a href="/logout">
-                <i class="material-icons left">trending_flat</i>Logout</a>
-            </li>
-            <% } else { %>
-              <li>
-                <a href="/auth/google">
-                  <i class="material-icons left">vpn_key</i>Login with Google</a>
-              </li>
-              <% } %>
-        </ul>
-      </div>
-    </nav>
-  </div>
+  <!-- Nav Bar-->
+  <nav>
+    <div class="nav-wrapper">
+      <a href="" class="brand-logo left">Divide and Costco</a>
+      <ul class="right">
+        <% if (user) { %>
+          <li><a href="/logout"><i class="material-icons left">trending_flat</i>Logout</a></li>
+        <% } else { %>
+          <li><a href="/auth/google"><i class="material-icons left">vpn_key</i>Login with Google</a></li>
+        <% } %>
+      </ul>
+    </div>
+  </nav>
+  <!-- Main Content -->
 
   <h1>WELCOME TO DIVIDE AND COSTCO</h1>
+  <h2>This is the pineapple dream.</h2>
 
+  <!-- jQuery (required by Materialize) -->
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <!-- JavaScript for Materialize -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 </body>
 
 </html>
