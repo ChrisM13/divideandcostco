@@ -4,6 +4,8 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var session = require('express-session') // Session middleware
+var passport = require('passport'); // Passport middleware
 var methodOverride = require('method-override'); // require method override
 
 var index = require('./routes/index');
@@ -15,6 +17,7 @@ require('dotenv').config();
 var app = express();
 
 require('./config/db'); // require the database
+require('./config/passport');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -27,6 +30,13 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(session({
+  secret: 'Pineapple Dream',
+  resave: false,
+  saveUninitialized: true
+}));
+app.use(passport.initialize());
+app.use(passport.session());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
