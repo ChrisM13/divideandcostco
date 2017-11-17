@@ -25,8 +25,8 @@ var userSchema = new mongoose.Schema(
 );
 
 // Get current user list
-userSchema.methods.currentList(function(){
-    return this.lists.find(list => list.isActive);
-});
+// userSchema.methods.currentList(function(){
+//     return this.lists.find(list => list.isActive);
+// });
 
 module.exports = mongoose.model('User', userSchema);
