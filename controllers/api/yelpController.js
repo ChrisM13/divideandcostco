@@ -10,7 +10,7 @@ function findCostco(req, res, next) {
     };
     request(options, function(err, response, body) {
         var costcoData = JSON.parse(body);
-        res.render('index', { user: req.user, costcoData });
+        res.render('costcos/index', { user: req.user, costcoData });
     });
 }
 
