@@ -1,12 +1,7 @@
-<<<<<<< HEAD
-var User = require('./../models/user');
+var yelpCtrl = require('./api/yelpController');
 
 function index(req, res) {
-    
-=======
-function index(req, res) {
-
->>>>>>> master
+    res.render('index', {costcoData})
 }
 
 module.exports = {
