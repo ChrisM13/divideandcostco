@@ -8,13 +8,13 @@ var yelpCtrl = require('./../controllers/api/yelpController');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { user: req.user });
+  res.render('index', { user: req.user, costcoData: null });
 });
 
+/* Routes for OAuth */
 router.get('/auth/google', passport.authenticate(
   'google', { scope: ['profile', 'email'] }
 ));
-
 router.get('/oauth2callback', passport.authenticate(
   'google',
   {
@@ -22,16 +22,12 @@ router.get('/oauth2callback', passport.authenticate(
     failureRedirect: '/'
   }
 ));
-
 router.get('/logout', (req, res) => {
   req.logout();
   res.redirect('/');
 });
 
-router.get('/', (req, res) => {
-  res.render('index', {user: req.user});
-});
-
+/* Routes for Yelp API */
 router.post('/', yelpCtrl.findCostco);
 
 module.exports = router;
