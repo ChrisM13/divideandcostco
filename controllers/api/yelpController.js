@@ -1,8 +1,6 @@
 var request = require('request');
 var rootURL = 'https://api.yelp.com/v3/businesses/search';
 
-
-
 function findCostco(req, res, next) {
     var options = {
         url: `${rootURL}?term=costco&location=${req.body.zipCode}&limit=1`,
@@ -16,10 +14,6 @@ function findCostco(req, res, next) {
     });
 }
 
-
 module.exports = {
     findCostco
 }
-
-
-// var zipCode = parseInt(req.body.businesses.location.zip_code);

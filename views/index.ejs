@@ -16,7 +16,7 @@
   <!-- Nav Bar-->
   <nav>
     <div class="nav-wrapper">
-      <a href="" class="brand-logo left">Divide and Costco</a>
+      <a href="" class="brand-logo center">Divide and Costco</a>
       <ul class="right">
         <% if (user) { %>
           <li><a href="/logout"><i class="material-icons left">trending_flat</i>Logout</a></li>
@@ -29,20 +29,26 @@
   <!-- Main Content -->
 
   <h1>WELCOME TO DIVIDE AND COSTCO</h1>
-  <h2>This is the pineapple dream.</h2>
 
-  <form action="/" method="POST">
-    <div class="input-group">
-      <input type="text" name="zipCode" class="form-control" placeholder="Enter a zip code">
-      <span class="input-group-btn">
-        <button class="btn btn-success" type="submit">Go!</button>
-      </span>
+  <div class="container">
+    <div class="row">
+      <form class="col s12" action="/" method="POST">
+        <div class="row">
+          <div class="input-field col s6">
+            <i class="material-icons prefix">location_on</i>
+            <input type"text" name="zipCode" placeholder="Enter a zip code">
+          </div>
+        </div>
+      </form>
     </div>
-  </form>
+  </div>
 
-  <% if (costcoData) { %>
-    <%= costcoData.businesses[0].location.zip_code %>
-  <% } %>
+  <div class="container">
+    <% if (costcoData) { %>
+      <%= costcoData.businesses[0].location.zip_code %>
+    <% } %>
+  </div>
+  
   <!-- jQuery (required by Materialize) -->
   <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
   <!-- JavaScript for Materialize -->
