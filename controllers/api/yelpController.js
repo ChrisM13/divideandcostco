@@ -12,9 +12,7 @@ function findCostco(req, res, next) {
     };
     request(options, function(err, response, body) {
         var costcoData = JSON.parse(body);
-        console.log('made it to Costco')
-        res.render('index', { user: req.user, costcoData: response });
-        console.log('this is costcoData', costcoData)
+        res.render('index', { user: req.user, costcoData });
     });
 }
 

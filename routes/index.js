@@ -8,7 +8,7 @@ var yelpCtrl = require('./../controllers/api/yelpController');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { user: req.user });
+  res.render('index', { user: req.user, costcoData: null });
 });
 
 router.get('/auth/google', passport.authenticate(
