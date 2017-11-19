@@ -28,6 +28,6 @@ router.get('/logout', (req, res) => {
 });
 
 /* Routes for Yelp API */
-router.post('/', yelpCtrl.findCostco);
+router.post('/costcos', yelpCtrl.findCostco);
 
 module.exports = router;
