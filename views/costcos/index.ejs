@@ -1,9 +1,14 @@
 <h1>List of Costcos</h1>
 
-<div class="firstcostco">First Costco
-        <%= costcoData.businesses[0].location.zip_code %>
+<div class="firstcostco">
+    <%= costcoData.businesses[0].location.zip_code %>
+    <img src="<%= costcoData.businesses[0].image_url%>">
 </div>
-<div class="secondcostco">Second Costco</div>
-<div class="thirdcostco">Third Costco</div>
+<div class="secondcostco">
+    <%= costcoData.businesses[1].location.zip_code %>
+</div>
+<div class="thirdcostco">
+    <%= costcoData.businesses[2].location.zip_code %>
+</div>
 
 <button>Back to Search</button>
