@@ -24,7 +24,7 @@ var productSchema = new mongoose.Schema (
     {
         name: "Kleenex Tissues",
         quantity: 10,
- vbf       price: 21.59,
+        price: 21.59,
         enum: "Bath"
     },
     {
