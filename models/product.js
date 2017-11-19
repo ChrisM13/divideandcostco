@@ -2,13 +2,8 @@ var mongoose = require('mongoose');
 module.exports = mongoose.model('Product', productSchema);
 
 var productSchema = new mongoose.Schema (
-    {
-        name: String,
-        quantity: Number,
-        price: Number,
-        enum: ['Grocery', 'Home/Kitchen', 'Bath', 'Misc']
-    },
-    {
+    products: 
+    [{
         name: "Kirkland Toilet Paper",
         quantity: 36,
         price: 25.99,
@@ -29,7 +24,7 @@ var productSchema = new mongoose.Schema (
     {
         name: "Kleenex Tissues",
         quantity: 10,
-        price: 21.59,
+ vbf       price: 21.59,
         enum: "Bath"
     },
     {
@@ -151,5 +146,5 @@ var productSchema = new mongoose.Schema (
         quantity: 64,
         price: 39.99,
         enum: "Misc"
-    }
+    }]
 );
