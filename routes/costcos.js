@@ -8,4 +8,8 @@ router.get('/', (req, res) => {
     res.render('costcos/index');
 });
 
+router.get('/:zip', (req, res) => {
+    res.render('costcos/show');
+});
+
 module.exports = router;    
