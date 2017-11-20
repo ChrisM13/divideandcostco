@@ -1,9 +1,9 @@
-var yelpCtrl = require('./api/yelpController');
+// var yelpCtrl = require('./api/yelpController');
 
-function index(req, res) {
-    res.render('index', {costcoData})
-}
+// function index(req, res) {
 
-module.exports = {
-    index
-};
+// }
+
+// module.exports = {
+//     index
+// };

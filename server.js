@@ -18,7 +18,7 @@ require('dotenv').config();
 var app = express();
 
 require('./config/db'); // require the database
-require('./config/passport');
+require('./config/passport'); // require passport.js
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
