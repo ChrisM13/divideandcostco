@@ -7,6 +7,15 @@ function index(req, res) {
     });
 }
 
+function show(req, res) {
+    User.findById(req.params.id, function(err, user) {
+        res.render('users/show', { user })
+    });
+}
+
+
+
 module.exports = {
-    index
+    index,
+    show
 };
