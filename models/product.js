@@ -5,7 +5,14 @@ var productSchema = new mongoose.Schema (
         name: String,
         quantity: Number,
         price: Number,
-        enum: ['Grocery', 'Home/Kitchen', 'Bath', 'Misc']
+        category: {
+            type: String,
+            enum: ['Grocery', 'Home/Kitchen', 'Bath', 'Misc']
+        }
+    },
+    {
+        timestamps: true
+        master
     }
 );
 
