@@ -5,7 +5,7 @@ var productCtrl = require('./../controllers/productsController');
 
 router.get('/', (req, res) => {
     console.log(res);
-    res.render('products');
+    res.render('products/products');
 });
 
 module.exports = router;
