@@ -12,6 +12,7 @@ var productSchema = new mongoose.Schema (
     },
     {
         timestamps: true
+        master
     }
 );
 
