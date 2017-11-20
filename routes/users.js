@@ -9,6 +9,8 @@ router.get('/', function(req, res, next) {
 
 router.get('/:id', userCtrl.show);
 
+router.get('/:id/lists', userCtrl.getUserLists)
+
 
 
 module.exports = router;

@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 // Require the database
 require('./config/db');
 // require Product model
@@ -30,5 +32,10 @@ seed.then( () => {
         {name: "Luminous LED 60W Light Bulbs", quantity: 24, price: 44.99, category: "Misc"},
         {name: "Kirkland AA Batteries", quantity: 72, price: 39.99, category: "Misc"},
         {name: "Kirkland AAA Batteries", quantity: 64, price: 39.99, category: "Misc"}
-    ]);
-});
+    ])
+})
+.then((products) => {
+    console.log(products);
+    require('mongoose').connection.close();
+    process.exit();
+})
