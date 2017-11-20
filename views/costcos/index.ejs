@@ -1,4 +1,10 @@
+<%- include('./../_partials/head') %>
+
 <h1>List of Costcos</h1>
+
+<div class="container">
+    <div id="map"></div>
+</div>
 
 <div class="firstcostco">
     <%= costcoData.businesses[0].location.city %>
@@ -23,3 +29,35 @@
 </div>
 
 <a href="/">Back to Search</a>
+
+<script>
+    function initMap() {
+      var current = {lat: <%= costcoData.businesses[0].coordinates.latitude %>, lng: <%= costcoData.businesses[0].coordinates.longitude %>}
+      var map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 10,
+        center: current
+      });
+
+      var labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+
+
+      var markers = locations.map(function(location, i) {
+          return new google.maps.Marker({
+            position: location,
+            label: labels[i % labels.length],
+            map: map
+          });
+      });
+      var markerCluster = new MarkerClusterer(map, markers,
+        {imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});
+    }
+    var locations = [
+        {lat: <%= costcoData.businesses[0].coordinates.latitude %>, lng: <%= costcoData.businesses[0].coordinates.longitude %>},
+        {lat: <%= costcoData.businesses[1].coordinates.latitude %>, lng: <%= costcoData.businesses[1].coordinates.longitude %>},
+        {lat: <%= costcoData.businesses[2].coordinates.latitude %>, lng: <%= costcoData.businesses[2].coordinates.longitude %>}
+    ]
+</script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=<%=process.env.GOOGLE_MAP_KEY%>&callback=initMap"></script>
+
+
+  <%- include('./../_partials/footer') %>
