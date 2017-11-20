@@ -4,6 +4,7 @@ var product = require('./../models/product');
 
 router.get('/', (req, res) => {
     console.log(res);
-    res.render('/views/products');
+    res.render('products/products');
 });
 
+module.exports = router;
