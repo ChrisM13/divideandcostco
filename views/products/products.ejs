@@ -1,14 +1,21 @@
 <h1>All Products</h1>
-    <div class='list-group'>
+    <div>
+        <table class="highlight">
+            <thead>
+                <tr>
+                <th>Product Name</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody>
         <% products.forEach(function(product){ %>
             <tr>
                 <td><%= product.name %></td>
                 <td>Quantity: <%= product.quantity %> </td>
                 <td> Price $<%= product.price %></td>
-                <br>
             </tr>
        <% }); %>
-
-
-
+            </tbody>
+        </table>
 </div>
