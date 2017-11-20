@@ -12,18 +12,7 @@ seed.then( () => {
     ]);
 });
 
-// {
-//     name: "Kirkland Toilet Paper",
-//     quantity: 36,
-//     price: 25.99,
-//     enum: "Bath"
-// },
-// {
-//     name: "Kirkland Dining Napkins",
-//     quantity: 12,
-//     price: 32.99,
-//     enum: "Home/Kitchen"
-// },
+
 // {
 //     name: "Kirkland Paper Towels",
 //     quantity: 12,
