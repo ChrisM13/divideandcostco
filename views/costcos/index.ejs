@@ -15,13 +15,16 @@
         <%= costcoData.businesses[0].location.address1 %>
         <%= costcoData.businesses[0].location.state %>
         <%= costcoData.businesses[0].location.zip_code %>
-
+        <a href="/costcos/<%=costcoData.businesses[0].location.zip_code %>">View/Create List</a>
+        
     </div>
     <div class="row">
         B.) <%= costcoData.businesses[1].location.city %>
         <%= costcoData.businesses[1].location.address1 %>
         <%= costcoData.businesses[1].location.state %>
         <%= costcoData.businesses[1].location.zip_code %>
+        <a href="/costcos/<%=costcoData.businesses[1].location.zip_code %>">View/Create List</a>
+        
 
     </div>
     <div class="row">
@@ -29,6 +32,8 @@
         <%= costcoData.businesses[2].location.address1 %>
         <%= costcoData.businesses[2].location.state %>
         <%= costcoData.businesses[2].location.zip_code %>
+        <a href="/costcos/<%=costcoData.businesses[2].location.zip_code %>">View/Create List</a>
+        
 
     </div>
 
