@@ -67,13 +67,46 @@
       var uluru = { lat: 34.0523, lng: -118.2395 };
       var map = new google.maps.Map(document.getElementById('map'), {
         zoom: 15,
-        center: uluru
-      });
-      var marker = new google.maps.Marker({
-        position: uluru,
+        center: uluru, 
         map: map
       });
+      var infoWindow = new google.maps.InfoWindow;
+
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(position){
+          var pos = {
+            lat: position.coords.latitude,
+            lng: position.coords.longitude
+          };
+
+          // infoWindow.setPosition(pos);
+          // infoWindow.setContent('You are here');
+          // infoWindow.open(map);
+          map.setCenter(pos);
+          var marker = new google.maps.Marker({
+            position: pos,
+            map: map
+          })
+        }, function() {
+          handleLocationError(true, infoWindow, map.getCenter());
+        });
+      } else {
+        handleLocationError(false, infoWindow, map.getCenter());
+      }
+    } 
+
+    
+
+    function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+      infoWindow.setPosition(pos);
+      infoWindow.setContent(browserHasGeolocation ? 'Error: Geoservice failed' : 'Browser not supported');
+      infoWindow.open(map);
     }
+    //   var marker = new google.maps.Marker({
+    //     position: uluru,
+    //     map: map
+    //   });
+    // }
   </script>
   <script async defer src="https://maps.googleapis.com/maps/api/js?key=<%=process.env.GOOGLE_MAP_KEY%>&callback=initMap"></script>
 
