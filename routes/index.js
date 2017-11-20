@@ -1,10 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var passport = require('passport');
-var request = require('request');
 var yelpCtrl = require('./../controllers/api/yelpController');
-
-
 
 /* GET home page. */
 router.get('/', function(req, res, next) {

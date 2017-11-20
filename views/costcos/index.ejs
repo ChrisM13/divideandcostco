@@ -1,9 +1,25 @@
 <h1>List of Costcos</h1>
 
-<div class="firstcostco">First Costco
-        <%= costcoData.businesses[0].location.zip_code %>
-</div>
-<div class="secondcostco">Second Costco</div>
-<div class="thirdcostco">Third Costco</div>
+<div class="firstcostco">
+    <%= costcoData.businesses[0].location.city %>
+    <%= costcoData.businesses[0].location.address1 %>
+    <%= costcoData.businesses[0].location.state %>
+    <%= costcoData.businesses[0].location.zip_code %>
 
-<button>Back to Search</button>
+</div>
+<div class="secondcostco">
+    <%= costcoData.businesses[1].location.city %>
+    <%= costcoData.businesses[1].location.address1 %>
+    <%= costcoData.businesses[1].location.state %>
+    <%= costcoData.businesses[1].location.zip_code %>
+
+</div>
+<div class="thirdcostco">
+    <%= costcoData.businesses[2].location.city %>
+    <%= costcoData.businesses[2].location.address1 %>
+    <%= costcoData.businesses[2].location.state %>
+    <%= costcoData.businesses[2].location.zip_code %>
+
+</div>
+
+<a href="/">Back to Search</a>
