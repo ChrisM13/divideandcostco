@@ -7,9 +7,9 @@ router.get('/', function(req, res, next) {
   res.render('users/index');
 });
 
-router.get('/:id', userCtrl.show);
+// router.get('/:id', userCtrl.show);
 
-router.get('/:id/lists', userCtrl.getUserLists)
+// router.get('/:id/lists', userCtrl.getUserLists)
 
 
 

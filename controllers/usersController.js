@@ -1,4 +1,5 @@
 var User = require('./../models/user');
+var Product = require('./../models/product');
 
 function index(req, res) {
     User.find({}, function(err, users) {
@@ -15,7 +16,9 @@ function show(req, res) {
 
 function getUserLists(req, res) {
     User.findById(req.params.id, function(err, user) {
-        res.render('lists/index', { user })
+        Product.find({}, (err, products) => {
+            res.render('lists/index', { user, products })
+        });
     })
 }
 
