@@ -79,21 +79,12 @@
             lng: position.coords.longitude
           };
 
-<<<<<<< HEAD
-          // infoWindow.setPosition(pos);
-          // infoWindow.setContent('You are here');
-          // infoWindow.open(map);
+          infoWindow.setPosition(pos);
           map.setCenter(pos);
           var marker = new google.maps.Marker({
             position: pos,
             map: map
           })
-=======
-          infoWindow.setPosition(pos);
-          infoWindow.setContent('You are here');
-          infoWindow.open(map);
-          map.setCenter(pos);
->>>>>>> 56faa26066505a7cfc54ba4191a5240fbca37dc2
         }, function() {
           handleLocationError(true, infoWindow, map.getCenter());
         });
@@ -102,11 +93,6 @@
       }
     } 
 
-<<<<<<< HEAD
-    
-
-=======
->>>>>>> 56faa26066505a7cfc54ba4191a5240fbca37dc2
     function handleLocationError(browserHasGeolocation, infoWindow, pos) {
       infoWindow.setPosition(pos);
       infoWindow.setContent(browserHasGeolocation ? 'Error: Geoservice failed' : 'Browser not supported');
