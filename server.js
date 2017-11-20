@@ -11,6 +11,7 @@ var methodOverride = require('method-override'); // require method override
 var index = require('./routes/index');
 var users = require('./routes/users');
 var costcos = require('./routes/costcos');
+var lists = require('./routes/lists');
 var products = require('./routes/products');
 
 // load the env vars
@@ -44,6 +45,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', index);
 app.use('/users', users);
 app.use('/costcos', costcos);
+app.use('/lists', lists);
 app.use('/products', products);
 
 // catch 404 and forward to error handler
