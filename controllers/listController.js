@@ -1,11 +1,10 @@
-var List = require('./../models/user')
+var User = require('./../models/user');
 
-function index(req, res) {
-    
 
+function createList(req, res) {
+    req.User.lists.create({products: req.})
 }
 
 module.exports = {
-    index,
-    create
+    createList
 };

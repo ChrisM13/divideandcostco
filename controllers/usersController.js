@@ -13,9 +13,14 @@ function show(req, res) {
     });
 }
 
-
+function getUserLists(req, res) {
+    User.findById(req.params.id, function(err, user) {
+        res.render('lists/index', { user })
+    })
+}
 
 module.exports = {
     index,
-    show
+    show,
+    getUserLists
 };

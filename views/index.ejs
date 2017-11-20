@@ -36,7 +36,9 @@
   <!-- Main Content -->
   <div class="container">
     <h2>WELCOME TO DIVIDE AND COSTCO</h2>
-      <a href="/users/<%= user.id %>">My List</a>
+    <% if (user) { %>
+    <a href="/users/<%= user.id %>">My List</a>
+    <% } %>
   </div>
 
   <!-- Form for Costco Search -->
