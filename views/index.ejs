@@ -35,7 +35,7 @@
         <div class="row">
           <div class="input-field col s6">
             <i class="material-icons prefix">location_on</i>
-            <input type "text" name="zipCode" required pattern="\d{5}" placeholder="Enter a zip code">
+            <input type="text" name="zipCode" pattern="\d{5}" placeholder="Enter a zip code">
           </div>
         </div>
       </form>
@@ -54,7 +54,7 @@
         <div class="row">
           <div class="input-field col s6">
             <i class="material-icons prefix">location_on</i>
-            <input type "text" name="listProduct" placeholder="Enter a product">
+            <input type="text" name="listProduct" placeholder="Enter a product">
           </div>
         </div>
       </form>
@@ -79,6 +79,7 @@
             lng: position.coords.longitude
           };
 
+<<<<<<< HEAD
           // infoWindow.setPosition(pos);
           // infoWindow.setContent('You are here');
           // infoWindow.open(map);
@@ -87,6 +88,12 @@
             position: pos,
             map: map
           })
+=======
+          infoWindow.setPosition(pos);
+          infoWindow.setContent('You are here');
+          infoWindow.open(map);
+          map.setCenter(pos);
+>>>>>>> 56faa26066505a7cfc54ba4191a5240fbca37dc2
         }, function() {
           handleLocationError(true, infoWindow, map.getCenter());
         });
@@ -95,8 +102,11 @@
       }
     } 
 
+<<<<<<< HEAD
     
 
+=======
+>>>>>>> 56faa26066505a7cfc54ba4191a5240fbca37dc2
     function handleLocationError(browserHasGeolocation, infoWindow, pos) {
       infoWindow.setPosition(pos);
       infoWindow.setContent(browserHasGeolocation ? 'Error: Geoservice failed' : 'Browser not supported');
