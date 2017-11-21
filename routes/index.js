@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var passport = require('passport');
-var yelpCtrl = require('./../controllers/api/yelpController');
+var yelpCtrl = require('./../util/yelp');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -25,6 +25,6 @@ router.get('/logout', (req, res) => {
 });
 
 /* Routes for Yelp API */
-router.post('/costcos', yelpCtrl.findCostco);
+
 
 module.exports = router;

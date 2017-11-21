@@ -1,11 +1,10 @@
 var express = require('express');
 var router = express.Router();
-// var yelpCtrl = require('./../controllers/api/yelpController');
+// var yelpCtrl = require('./../util/yelp');
 var costcosCtrl = require('./../controllers/costcosController');
 
-
-router.get('/', costcosCtrl.index); 
-
 router.get('/:zip', costcosCtrl.show);
+
+router.post('/', costcosCtrl.index);
     
 module.exports = router;    
