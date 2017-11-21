@@ -1,9 +1,9 @@
-var yelpCtrl = require('./../util/yelp');
+var yelp = require('./../util/yelp');
 var User = require('../models/user');
 
 function index(req, res) {
-    yelpCtrl.findCostco(req, res).then(function(data) {
-        res.render('costcos/index', {costcoData: data});
+    yelp.findCostco(req.body.zipCode).then(function(costcos) {
+        res.render('costcos/index', {costcoData: costcos});
     });
 }
 
