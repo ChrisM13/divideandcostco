@@ -9,16 +9,16 @@ function index(req, res) {
 
 function show(req, res) {
     User.find({'lists.zipCode': req.params.zip, isActive: true}, (err, users) => {
-        console.log(users);
         var lists = users.map(user => ({
             name: user.name,
             list: user.currentList()
         }));
+        console.log(lists);
         res.render('costcos/show', {lists, users});
     });
 };
 
 module.exports = {
-    show,
-    index
+    index,
+    show
 };

@@ -1,15 +1,9 @@
 var express = require('express');
 var router = express.Router();
 var Product = require('../models/product');
-// localhost/lists
-router.get('/new', function(req, res) {
-    Product.find({}, (err, products) => {
-        res.render('lists/show', {user: req.user, products});
-    });
-});
+var listCtrl = require('../controllers/listController');
 
-
-
+router.get('/new/:zip', listCtrl.show)
 
 router.post('/', function(req, res) {
     console.log(req.body);

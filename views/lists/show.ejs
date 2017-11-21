@@ -1,18 +1,22 @@
 <%- include('./../_partials/head') %>
-<div class="container">
-    <h1>LIST ALL PAGE!!!!!</h1>
+    <div class="container">
+        <h1>LIST ALL PAGE!!!!!</h1>
         <form method="POST" action="/lists">
+            <!-- Select products -->
             <div class="row">
                 <div class="input-field col s12">
                     <select multiple name="products">
                         <option value="" disabled selected>Choose your Product</option>
                         <% products.forEach( product => { %>
-                            <option value="<%=product._id%>"><%=product.name%></option>
-                        <% }) %>
+                            <option value="<%=product._id%>">
+                                <%=product.name%>
+                            </option>
+                            <% }) %>
                     </select>
                     <!-- <label>Select Product</label> -->
                 </div>
             </div>
+
             <div class="row">
 
                 <div class="input-field col s12">
@@ -21,23 +25,24 @@
 
                 </div>
             </div>
-            <input type="submit">Submit</input>
+
+            <input type="submit"></input>
         </form>
-</div>
+    </div>
 
-<%= user.id %>
-<%= products[0].name %>
+    <%= user.id %>
+        <%= products[0].name %>
 
-<!-- jQuery (required by Materialize) -->
-<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-    crossorigin="anonymous"></script>
-<!-- JavaScript for Materialize -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-<script>
-    $(document).ready(function () {
-        $('select').material_select();
-    });
-</script>
-</body>
+            <!-- jQuery (required by Materialize) -->
+            <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+                crossorigin="anonymous"></script>
+            <!-- JavaScript for Materialize -->
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+            <script>
+                $(document).ready(function () {
+                    $('select').material_select();
+                });
+            </script>
+            </body>
 
-</html>
+            </html>
