@@ -1,5 +1,8 @@
 <%- include('./../_partials/head') %>
 
+<%= costcoData[0].businesses %>
+<% console.log(costcoData[0]) %>
+
 <div class="container">
     <h1>List of Costcos</h1>
 </div>
@@ -7,7 +10,7 @@
 <div class="container">
     <div id="map"></div>
 </div>
-
+<% /* %>
 <div class="container">
     <div class="row"></div>
     <div class="row">Closest location:
@@ -70,5 +73,5 @@
 </script>
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=<%=process.env.GOOGLE_MAP_KEY%>&callback=initMap"></script>
 
-
+<% */ %>
   <%- include('./../_partials/footer') %>
