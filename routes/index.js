@@ -24,7 +24,4 @@ router.get('/logout', (req, res) => {
   res.redirect('/');
 });
 
-/* Routes for Yelp API */
-
-
 module.exports = router;
