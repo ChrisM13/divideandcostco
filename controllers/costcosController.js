@@ -8,7 +8,7 @@ function index(req, res) {
 }
 
 function show(req, res) {
-    User.find({'lists.zipCode': req.params.zip, 'lists.isActive': true}, (err, users) => {
+    User.find({'lists.zipCode': req.params.zip, 'lists.isActive': true}).populate('lists.products').exec((err, users) => {
         var lists = users.map(user => ({
             name: user.name,
             list: user.currentList()
