@@ -1,2 +1,10 @@
-<h1> Show Page</h1>
-<a href="/lists/new">CREATE BITCHES</a>
+<div class="container">
+    <h1> Show Page</h1>
+    <% if (lists.length === 0) { %>
+        <h1>No lists yet! Want to create one?</h1>
+    <% } else { %>
+        <% lists.forEach((list) => { %>
+            <div><%= list.name %></div>
+        <% })} %>
+    <a href="/lists/new">CREATE BITCHES</a>
+</div>
