@@ -1,3 +1,7 @@
+<%- include('./../_partials/head') %>
+
+<%= JSON.stringify(lists) %>
+
 <div class="container">
     <h1> Show Page</h1>
     <% if (lists.length === 0) { %>
@@ -5,6 +9,7 @@
     <% } else { %>
         <% lists.forEach((list) => { %>
             <div><%= list.name %></div>
+            <div><%= list.list.products %></div>
         <% })} %>
     <a href="/lists/new/<%=costcoData.businesses[0].location.zip_code %>">CREATE BITCHES</a>
 </div>
