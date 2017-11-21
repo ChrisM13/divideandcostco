@@ -5,6 +5,6 @@ var listCtrl = require('../controllers/listController');
 
 router.get('/new/:zip', listCtrl.show)
 
-router.post('/', listCtrl.createList)
+router.post('/:zip', listCtrl.createList)
 
 module.exports = router;
