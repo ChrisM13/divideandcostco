@@ -109,7 +109,6 @@
                             <form method="POST" action="/lists/<%=user.currentList()._id%>/connect/<%=userList.list._id%>?_method=PUT">
                                 <input type="submit" class="" value="Connect">
                             </form>
-
                         </div>
                     </div>
                 </div>
@@ -120,10 +119,11 @@
 
     <!-- Update list form-->
     <div id="updateform" class="container">
+        <% var list = user.currentList(); %>
         <form method="POST" action="/lists?_method=PUT">
             <% products.forEach((product) => { %>
                 <div class="row">
-                    <input type="checkbox" class="filled-in" value="<%=product._id%>" id="<%=product._id%>" name="products">
+                    <input type="checkbox" class="filled-in" value="<%=product._id%>" id="<%=product._id%>" name="products" <%= list.products.some(p => p.equals(product._id)) ? 'checked' : '' %> >
                     <label for="<%=product._id%>"><%=product.name%></label>
                 </div>
             <% }) %>
