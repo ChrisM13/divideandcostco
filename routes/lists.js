@@ -7,4 +7,6 @@ router.get('/new/:zip', listCtrl.show)
 
 router.post('/:zip', listCtrl.createList)
 
+router.put('/', listCtrl.update)
+
 module.exports = router;
