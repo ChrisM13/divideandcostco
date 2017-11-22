@@ -6,10 +6,10 @@
     </div>
 
     <div class="container">
-        <% if (lists.length === 0) { %>
-            <h1>No lists yet! Want to create one?</h1>
+        <% if (allLists.length === 0) { %>
+            <h1>No list yet! Want to create one?</h1>
         <% } else { %>
-            <% lists.forEach((userList) => { %>
+            <% allLists.forEach((userList) => { %>
                 <div class="row">
                 <!-- Modal Trigger -->
                     <a class="waves-effect waves-light btn modal-trigger" href="#modal<%= userList.list._id %>"><%=userList.name%></a>
@@ -30,6 +30,13 @@
                                                 <td><%=product.name%></td>
                                                 <td><%=product.quantity%></td>
                                                 <td>$<%=product.price%></td>
+                                                <% if (user) { %>
+                                                    <td>
+                                                        <form method="POST" action="/lists/<%=userList.list._id%>/products/<%=product._id%>?_method=DELETE">
+                                                            <input type="submit" class="btn" value="X">
+                                                        </form>
+                                                    </td>
+                                                <% } %>
                                             </tr>
                                         <% }) %>
                                 </tbody>
