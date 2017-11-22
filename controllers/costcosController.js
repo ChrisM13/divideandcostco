@@ -16,7 +16,7 @@ function show(req, res) {
         }));
         Product.find({}, (err, products) => {
             yelp.findCostco(req.params.zip).then(function(costcos) {
-                res.render('costcos/show', { lists, users, user: req.user, costcoData: costcos, products });
+                res.render('costcos/show', { allLists: lists, user: req.user, costcoData: costcos, products });
             });
         });
 })};
