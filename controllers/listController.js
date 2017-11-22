@@ -58,6 +58,5 @@ module.exports = {
     createList,
     update,
     destroy,
-    isLoggedIn,
     connect
 };
