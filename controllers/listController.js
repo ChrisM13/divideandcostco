@@ -22,7 +22,6 @@ function createList(req, res) {
 
 function update(req, res) {
     if (!req.user) return res.redirect('/'); // TODO - put this as middleware in routes
-
     var list = req.user.currentList();
     list.products = req.body.products;
     req.user.save();
@@ -51,7 +50,6 @@ function connect(req, res) {
         otherList.connectedList = userList._id;
         // save both users
         Promise.all([req.user.save(), user.save()]).then(function(resolves) {
-            console.log(resolves);
             // redirect
             res.redirect(`/costcos/${userList.zipCode}/connection`);
         });

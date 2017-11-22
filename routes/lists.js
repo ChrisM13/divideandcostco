@@ -13,5 +13,4 @@ router.put('/:userListId/connect/:listId', listCtrl.connect);
 
 router.delete('/:listId/products/:productId', listCtrl.destroy);
 
-
 module.exports = router;

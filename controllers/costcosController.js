@@ -25,7 +25,22 @@ function show(req, res) {
 })};
 
 function connection(req, res) {
-    res.send('connection made');
+    if (!req.user) return res.redirect('/');  
+    var otherList;
+    var userList = req.user.currentList();
+    req.user.lists = [req.user.lists.find(list => list._id.equals(userList._id))];
+    req.user.populate({path: 'lists.products'}, (err) => {
+        User.findOne({'lists._id': userList.connectedList}).populate('lists.products').exec((err, user) => {
+            otherList = user.lists.id(userList.connectedList);
+                res.render('costcos/connection', {userList, otherList, user: req.user});
+        });
+    });
+    // User.findOne({'lists._id': userList.connectedList}, (err, user) => {
+    //     otherList = user.lists.id(userList.connectedList);
+    //     User.populate('lists.products').exec((err, user) => {
+    //         res.render('costcos/connection', {userList, otherList, user: req.user});
+    //     })
+    // });
 }
 
 module.exports = {
