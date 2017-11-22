@@ -14,5 +14,4 @@ router.put('/:userListId/connect/:listId', log.isLoggedIn, listCtrl.connect);
 
 router.delete('/:listId/products/:productId', log.isLoggedIn, listCtrl.destroy);
 
-
 module.exports = router;
