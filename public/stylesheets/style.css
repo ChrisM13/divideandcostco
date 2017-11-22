@@ -12,3 +12,8 @@ a {
   height: 400px;
   background-color: grey;
 }
+
+#updateform {
+  height: 300px;
+  overflow: scroll;
+}
