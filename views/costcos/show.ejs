@@ -1,5 +1,6 @@
 <%- include('./../_partials/head') %>
 
+<<<<<<< HEAD
 <%= JSON.stringify(lists) %>
 
 <div class="container">
@@ -13,3 +14,91 @@
         <% })} %>
     <a href="/lists/new/<%=costcoData.businesses[0].location.zip_code %>">CREATE BITCHES</a>
 </div>
+=======
+    <!-- All the lists -->
+    <div class="container">
+        <h1><%=costcoData.businesses[0].location.city%> Costco</h1>
+    </div>
+
+    <div class="container">
+        <% if (lists.length === 0) { %>
+            <h1>No lists yet! Want to create one?</h1>
+        <% } else { %>
+            <% lists.forEach((userList) => { %>
+                <div class="row">
+                <!-- Modal Trigger -->
+                    <a class="waves-effect waves-light btn modal-trigger" href="#modal<%= userList.list._id %>"><%=userList.name%></a>
+                <!-- Modal Structure -->
+                    <div id="modal<%= userList.list._id %>" class="modal modal-fixed-footer">
+                        <div class="modal-content">
+                            <table class="highlight">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Quantity</th>
+                                        <th>Price</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                        <% userList.list.products.forEach((product) => { %>
+                                            <tr>
+                                                <td><%=product.name%></td>
+                                                <td><%=product.quantity%></td>
+                                                <td>$<%=product.price%></td>
+                                            </tr>
+                                        <% }) %>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="modal-footer">
+                            <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Agree</a>
+                        </div>
+                    </div>
+                </div>
+            <% }) %>
+        <% }%>
+            <a href="/lists/new/<%=costcoData.businesses[0].location.zip_code %>">CREATE BITCHES</a>
+    </div>
+
+    <!-- Update list form-->
+    <div class="container">
+        <form id="test" method="POST" action="/lists?_method=PUT">
+            <!-- Select products -->
+            <div class="row">
+                <div class="input-field col s8">
+                    <select multiple name="products">
+                        <option value="" disabled selected>Choose your Product</option>
+                        <% products.forEach((product) => { %>
+                            <option value="<%=product._id%>">
+                                <%=product.name%>
+                            </option>
+                            <% }) %>
+                    </select>
+                    <!-- <label>Select Product</label> -->
+                </div>
+            </div>
+            <input type="submit"></input>
+        </form>
+    </div>
+
+
+    <!-- jQuery (required by Materialize) -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
+    <!-- JavaScript for Materialize -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('select').material_select();
+        });
+        // Model Trigger
+        $(document).ready(function () {
+            // the "href" attribute of the modal trigger must specify the modal ID that wants to be triggered
+            $('.modal').modal();
+        });
+    </script>
+
+    </body>
+
+    </html>
+>>>>>>> 3a8b33bad64ba3f5f54e702614d691c67f61f3af

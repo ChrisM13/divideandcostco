@@ -21,20 +21,6 @@
     <div id="map"></div>
   </div>
 
-  <!-- Form for creating a list -->
-  <div class="container">
-    <div class="row">
-      <form class="col s12" action="/" method="POST">
-        <div class="row">
-          <div class="input-field col s6">
-            <i class="material-icons prefix">location_on</i>
-            <input type="text" name="listProduct" placeholder="Enter a product">
-          </div>
-        </div>
-      </form>
-    </div>
-  </div>
-  
   <!-- JavaScript for Google Maps API-->
   <script>
     function initMap() {
@@ -72,11 +58,6 @@
       infoWindow.setContent(browserHasGeolocation ? 'Error: Geoservice failed' : 'Browser not supported');
       infoWindow.open(map);
     }
-    //   var marker = new google.maps.Marker({
-    //     position: uluru,
-    //     map: map
-    //   });
-    // }
   </script>
   <script async defer src="https://maps.googleapis.com/maps/api/js?key=<%=process.env.GOOGLE_MAP_KEY%>&callback=initMap"></script>
 

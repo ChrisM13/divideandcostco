@@ -20,7 +20,17 @@ function createList(req, res) {
     res.redirect(`/costcos/${zip}`);
 };
 
+function update(req, res) {
+    if (!req.user) return res.redirect('/'); // TODO - put this as middleware in routes
+
+    var list = req.user.currentList();
+    list.products = req.body.products;
+    req.user.save();
+    res.redirect(`/costcos/${list.zipCode}`);
+}
+
 module.exports = {
     show,
-    createList
+    createList,
+    update
 };
