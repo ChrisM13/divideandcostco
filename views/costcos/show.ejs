@@ -1,5 +1,6 @@
 <%- include('./../_partials/head') %>
 
+<<<<<<< HEAD
     <div class="container">
         <h1> Show Page</h1>
         <% if (lists.length === 0) { %>
@@ -57,6 +58,80 @@
             <input type="submit"></input>
         </form>
     </div>
+=======
+    <!-- All the lists -->
+    <div class="container">
+        <h1><%=costcoData.businesses[0].location.city%> Costco</h1>
+    </div>
+    <!-- Display all the lists -->
+    <div class="container">
+        <% if (allLists.length === 0) { %>
+            <h1>No list yet! Want to create one?</h1>
+        <% } else { %>
+            <% allLists.forEach((userList) => { %>
+                <div class="row">
+                <!-- Modal Trigger -->
+                    <a class="waves-effect waves-light btn modal-trigger" href="#modal<%= userList.list._id %>"><%=userList.name%> is looking to share <%=userList.list.products.length%> products</a>
+                <!-- Modal Structure -->
+                    <div id="modal<%= userList.list._id %>" class="modal modal-fixed-footer">
+                        <div class="modal-content">
+                            <table class="highlight">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Quantity</th>
+                                        <th>Price</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                        <% userList.list.products.forEach((product) => { %>
+                                            <tr>
+                                                <td><%=product.name%></td>
+                                                <td><%=product.quantity%></td>
+                                                <td>$<%=product.price%></td>
+                                                <% if (user.name === userList.name) { %>
+                                                    <td>
+                                                        <form method="POST" action="/lists/<%=userList.list._id%>/products/<%=product._id%>?_method=DELETE">
+                                                            <input type="submit" class="btn red" value="X">
+                                                        </form>
+                                                    </td>
+                                                <% } %>
+                                            </tr>
+                                        <% }) %>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="modal-footer">
+                            <div class="chip">
+                                <img src="<%=userList.avatar%>" alt="Contact Person">
+                                <%= userList.name %>
+                            </div>
+                            <form method="POST" action="/lists/<%=user.currentList()._id%>/connect/<%=userList.list._id%>?_method=PUT">
+                                <input type="submit" class="" value="Connect">
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            <% }) %>
+        <% }%>
+            <a href="/lists/new/<%=costcoData.businesses[0].location.zip_code %>">CREATE LIST</a>
+    </div>
+
+    <!-- Update list form-->
+    <div id="updateform" class="container">
+        <form method="POST" action="/lists?_method=PUT">
+            <% products.forEach((product) => { %>
+                <div class="row">
+                    <input type="checkbox" class="filled-in" value="<%=product._id%>" id="<%=product._id%>" name="products">
+                    <label for="<%=product._id%>"><%=product.name%></label>
+                </div>
+            <% }) %>
+            <button class="btn btn-primary btn-lg waves-effect waves-light" id="submit" type="submit">Submit</button>
+        </form>
+    </div>
+   
+>>>>>>> master
     <!-- jQuery (required by Materialize) -->
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
         crossorigin="anonymous"></script>
@@ -66,9 +141,22 @@
         $(document).ready(function () {
             $('select').material_select();
         });
+<<<<<<< HEAD
 
     </script>
 
     </body>
 
     </html>
+=======
+        // Model Trigger
+        $(document).ready(function () {
+            // the "href" attribute of the modal trigger must specify the modal ID that wants to be triggered
+            $('.modal').modal();
+        });
+    </script>
+
+    </body>
+
+    </html>
+>>>>>>> master
