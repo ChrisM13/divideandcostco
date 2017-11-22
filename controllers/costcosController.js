@@ -9,9 +9,11 @@ function index(req, res) {
 }
 
 function show(req, res) {
+    if (!req.user) return res.redirect('/');
     User.find({'lists.zipCode': req.params.zip, 'lists.isActive': true}).populate('lists.products').exec((err, users) => {
         var lists = users.map(user => ({
             name: user.name,
+            avatar: user.avatar,
             list: user.currentList()
         }));
         Product.find({}, (err, products) => {
