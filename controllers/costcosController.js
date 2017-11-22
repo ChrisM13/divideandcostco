@@ -1,5 +1,6 @@
 var yelp = require('./../util/yelp');
 var User = require('../models/user');
+var Product = require('../models/product');
 
 function index(req, res) {
     yelp.findCostco(req.body.zipCode).then(function(costcos) {
@@ -8,17 +9,21 @@ function index(req, res) {
 }
 
 function show(req, res) {
-    User.find({'lists.zipCode': req.params.zip, 'lists.isActive': true}, (err, users) => {
+    User.find({'lists.zipCode': req.params.zip, 'lists.isActive': true}).populate('lists.products').exec((err, users) => {
         var lists = users.map(user => ({
             name: user.name,
             list: user.currentList()
         }));
-
-        yelp.findCostco(req.params.zip).then(function(costcos) {
-            res.render('costcos/show', { lists, users, user: req.user, costcoData: costcos });
+        Product.find({}, (err, products) => {
+            yelp.findCostco(req.params.zip).then(function(costcos) {
+                res.render('costcos/show', { lists, users, user: req.user, costcoData: costcos, products });
+            });
         });
 })};
 
+function update(req, res) {
+    
+}
 
 module.exports = {
     index,
