@@ -29,8 +29,16 @@ function update(req, res) {
     res.redirect(`/costcos/${list.zipCode}`);
 }
 
+function destroy(req, res) {
+    var list = req.user.currentList();
+    list.products.remove(req.params.productId);
+    req.user.save();
+    res.redirect(`/costcos/${list.zipCode}`);
+}
+
 module.exports = {
     show,
     createList,
-    update
+    update,
+    destroy
 };

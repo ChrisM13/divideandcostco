@@ -9,4 +9,7 @@ router.post('/:zip', listCtrl.createList)
 
 router.put('/', listCtrl.update)
 
+router.delete('/:listId/products/:productId', listCtrl.destroy);
+
+
 module.exports = router;
