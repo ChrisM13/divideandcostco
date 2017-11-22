@@ -33,7 +33,7 @@
                                                 <% if (user.name === userList.name) { %>
                                                     <td>
                                                         <form method="POST" action="/lists/<%=userList.list._id%>/products/<%=product._id%>?_method=DELETE">
-                                                            <input type="submit" class="btn red" value="X"></input>
+                                                            <input type="submit" class="btn red" value="X">
                                                         </form>
                                                     </td>
                                                 <% } %>
@@ -47,7 +47,10 @@
                                 <img src="<%=userList.avatar%>" alt="Contact Person">
                                 <%= userList.name %>
                             </div>
-                            <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Connect</a>
+                            <form method="POST" action="/lists/<%=user.currentList()._id%>/connect/<%=userList.list._id%>?_method=PUT">
+                                <input type="submit" class="" value="Connect">
+                            </form>
+
                         </div>
                     </div>
                 </div>
