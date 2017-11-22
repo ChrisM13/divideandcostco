@@ -4,6 +4,7 @@ var Product = require('../models/product');
 
 function index(req, res) {
     yelp.findCostco(req.body.zipCode).then(function(costcos) {
+        if (costcos.businesses.length < 3) return res.redirect('/');
         res.render('costcos/index', {costcoData: costcos, user: req.user});
     });
 }
@@ -23,11 +24,12 @@ function show(req, res) {
         });
 })};
 
-function update(req, res) {
-    
+function connection(req, res) {
+    res.send('connection made');
 }
 
 module.exports = {
     index,
-    show
+    show,
+    connection
 };

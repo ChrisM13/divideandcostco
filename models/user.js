@@ -4,7 +4,8 @@ var listSchema = new mongoose.Schema(
     {
         products: [{type: mongoose.Schema.Types.ObjectId, ref: 'Product'}],
         zipCode: Number,
-        isActive: {type: Boolean, default: true}
+        isActive: {type: Boolean, default: true},
+        connectedList: mongoose.Schema.Types.ObjectId
     },
     {
         timestamps: true
@@ -25,6 +26,11 @@ var userSchema = new mongoose.Schema(
 );
 
 // Get current user list
+userSchema.methods.currentList = function(){
+    return this.lists.find(list => list.isActive);
+};
+
+
 userSchema.methods.currentList = function(){
     return this.lists.find(list => list.isActive);
 };
