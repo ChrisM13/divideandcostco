@@ -1,20 +1,5 @@
 <%- include('./../_partials/head') %>
 
-<<<<<<< HEAD
-<%= JSON.stringify(lists) %>
-
-<div class="container">
-    <h1> Show Page</h1>
-    <% if (lists.length === 0) { %>
-        <h1>No lists yet! Want to create one?</h1>
-    <% } else { %>
-        <% lists.forEach((list) => { %>
-            <div><%= list.name %></div>
-            <div><%= list.list.products %></div>
-        <% })} %>
-    <a href="/lists/new/<%=costcoData.businesses[0].location.zip_code %>">CREATE BITCHES</a>
-</div>
-=======
     <!-- All the lists -->
     <div class="container">
         <h1><%=costcoData.businesses[0].location.city%> Costco</h1>
@@ -101,4 +86,3 @@
     </body>
 
     </html>
->>>>>>> 3a8b33bad64ba3f5f54e702614d691c67f61f3af
