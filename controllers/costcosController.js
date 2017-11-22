@@ -26,16 +26,23 @@ function show(req, res) {
 
 function connection(req, res) {
     if (!req.user) return res.redirect('/');  
+    var oList = [];
+    var uList = [];
     var otherList;
     var userList = req.user.currentList();
     req.user.lists = [req.user.lists.find(list => list._id.equals(userList._id))];
     req.user.populate({path: 'lists.products'}, (err) => {
         User.findOne({'lists._id': userList.connectedList}).populate('lists.products').exec((err, user) => {
             otherList = user.lists.id(userList.connectedList);
-                res.render('costcos/connection', {userList, otherList, user: req.user});
+            var matched = commonProducts(userList.products, otherList.products);
+            res.render('costcos/connection', {userList, otherList, user: req.user, matched});
         });
     });
 }
+
+function commonProducts(userProducts, otherProducts) {
+    return userProducts.filter(p => otherProducts.some(product => product._id.equals(p._id)));
+};
 
 module.exports = {
     index,
