@@ -6,5 +6,5 @@ var costcosCtrl = require('./../controllers/costcosController');
 router.get('/:zip', costcosCtrl.show);
 
 router.post('/', costcosCtrl.index);
-    
+
 module.exports = router;    

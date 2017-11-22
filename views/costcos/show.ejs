@@ -1,23 +1,49 @@
 <%- include('./../_partials/head') %>
 
-<div class="container">
-    <h1> Show Page</h1>
-    <% if (lists.length === 0) { %>
-        <h1>No lists yet! Want to create one?</h1>
-    <% } else { %>
-        <% lists.forEach((list) => { %>
-            <div><%= list.name %></div>
-            <div><%= list.list.products %></div>
-        <% })} %>
-    <a href="/lists/new/<%=costcoData.businesses[0].location.zip_code %>">CREATE BITCHES</a>
-</div>
+    <div class="container">
+        <h1> Show Page</h1>
+        <% if (lists.length === 0) { %>
+            <h1>No lists yet! Want to create one?</h1>
+            <% } else { %>
+                <% lists.forEach((list) => { %>
+                    <div>
+                        <%= list.name %>
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Item Quantity</th>
+                                <th>Item Price</th>
+                            </tr>
+                        </thead>
 
-<div class="container">
-    <form method="POST" action="/lists?_method=PUT">
-    <!-- Select products -->
-    <div class="row">
-        <div class="input-field col s12">
-            <select multiple name="products">
+                        <tbody>
+                            <% list.list.products.forEach((product) => { %>
+                                <tr>
+                                    <td>
+                                        <%= product.name %>
+                                    </td>
+                                    <td>
+                                        <%= product.quantity %>
+                                    </td>
+                                    <td>
+                                        $<%= product.price %>
+                                    </td>
+                                </tr>
+                        </tbody>
+                        <% }) %>
+                            <% })} %>
+                    </table>
+                            <a href="/lists/new/<%=costcoData.businesses[0].location.zip_code %>">CREATE BITCHES</a>
+    </div>
+
+    <div class="container">
+        <form method="POST" action="/lists?_method=PUT">
+            <!-- Select products -->
+            <div class="row">
+                <div class="input-field col s12">
+                    <select multiple name="products">
                 <option value="" disabled selected>Choose your Product</option>
                 <% products.forEach((product) => { %>
                     <option value="<%=product._id%>">
@@ -25,22 +51,24 @@
                     </option>
                     <% }) %>
             </select>
-            <!-- <label>Select Product</label> -->
-        </div>
+                    <!-- <label>Select Product</label> -->
+                </div>
+            </div>
+            <input type="submit"></input>
+        </form>
     </div>
-    <input type="submit"></input>
-    </form>
-</div>
-<!-- jQuery (required by Materialize) -->
-<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-crossorigin="anonymous"></script>
-<!-- JavaScript for Materialize -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-<script>
+    <!-- jQuery (required by Materialize) -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
+    <!-- JavaScript for Materialize -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <script>
         $(document).ready(function () {
             $('select').material_select();
         });
-</script>
 
-</body>
-</html>
+    </script>
+
+    </body>
+
+    </html>
