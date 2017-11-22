@@ -35,11 +35,6 @@ function destroy(req, res) {
     res.redirect(`/costcos/${list.zipCode}`);
 }
 
-function isLoggedIn(req, res, next) {
-    if ( req.isAuthenticated() ) return next();
-    res.redirect('/auth/google');
-}
-
 function connect(req, res) {
     var otherList;
     var userList = req.user.lists.id(req.params.userListId);
@@ -61,6 +56,5 @@ module.exports = {
     createList,
     update,
     destroy,
-    isLoggedIn,
     connect
 };
