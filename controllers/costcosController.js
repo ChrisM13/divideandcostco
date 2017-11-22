@@ -35,12 +35,6 @@ function connection(req, res) {
                 res.render('costcos/connection', {userList, otherList, user: req.user});
         });
     });
-    // User.findOne({'lists._id': userList.connectedList}, (err, user) => {
-    //     otherList = user.lists.id(userList.connectedList);
-    //     User.populate('lists.products').exec((err, user) => {
-    //         res.render('costcos/connection', {userList, otherList, user: req.user});
-    //     })
-    // });
 }
 
 module.exports = {
