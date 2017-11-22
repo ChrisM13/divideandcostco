@@ -19,7 +19,7 @@
     <div class="container">
         <h1><%=costcoData.businesses[0].location.city%> Costco</h1>
     </div>
-
+    <!-- Display all the lists -->
     <div class="container">
         <% if (allLists.length === 0) { %>
             <h1>No list yet! Want to create one?</h1>
@@ -48,7 +48,7 @@
                                                 <% if (user.name === userList.name) { %>
                                                     <td>
                                                         <form method="POST" action="/lists/<%=userList.list._id%>/products/<%=product._id%>?_method=DELETE">
-                                                            <input type="submit" class="btn red" value="X"></input>
+                                                            <input type="submit" class="btn red" value="X">
                                                         </form>
                                                     </td>
                                                 <% } %>
@@ -62,7 +62,10 @@
                                 <img src="<%=userList.avatar%>" alt="Contact Person">
                                 <%= userList.name %>
                             </div>
-                            <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Connect</a>
+                            <form method="POST" action="/lists/<%=user.currentList()._id%>/connect/<%=userList.list._id%>?_method=PUT">
+                                <input type="submit" class="" value="Connect">
+                            </form>
+
                         </div>
                     </div>
                 </div>
@@ -72,27 +75,18 @@
     </div>
 
     <!-- Update list form-->
-    <div class="container">
-        <form id="test" method="POST" action="/lists?_method=PUT">
-            <!-- Select products -->
-            <div class="row">
-                <div class="input-field col s8">
-                    <select multiple name="products">
-                        <option value="" disabled selected>Choose your Product</option>
-                        <% products.forEach((product) => { %>
-                            <option value="<%=product._id%>">
-                                <%=product.name%>
-                            </option>
-                            <% }) %>
-                    </select>
-                    <!-- <label>Select Product</label> -->
+    <div id="updateform" class="container">
+        <form method="POST" action="/lists?_method=PUT">
+            <% products.forEach((product) => { %>
+                <div class="row">
+                    <input type="checkbox" class="filled-in" value="<%=product._id%>" id="<%=product._id%>" name="products">
+                    <label for="<%=product._id%>"><%=product.name%></label>
                 </div>
-            </div>
-            <input type="submit"></input>
+            <% }) %>
+            <button class="btn btn-primary btn-lg waves-effect waves-light" id="submit" type="submit">Submit</button>
         </form>
     </div>
-
-
+   
     <!-- jQuery (required by Materialize) -->
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
         crossorigin="anonymous"></script>
