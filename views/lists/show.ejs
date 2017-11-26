@@ -1,36 +1,21 @@
 <%- include('./../_partials/head') %>
 
-<div class="container">
-    <h1>LIST ALL PAGE!!!!!</h1>
+
     <form method="POST" action="/lists/<%=zip%>">
-        <!-- Select products -->
         <div class="row">
-            <div class="input-field col s12">
-                <select multiple name="products">
-                    <option value="" disabled selected>Choose your Product</option>
-                    <% products.forEach( product => { %>
-                        <option value="<%=product._id%>">
-                            <%=product.name%>
-                        </option>
-                        <% }) %>
-                </select>
-                <!-- <label>Select Product</label> -->
-            </div>
+            <% products.forEach((product, idx) => { %>
+                <div class="col s6">
+                    <div class="card blue-grey darken-1">
+                        <div class="card-content white-text">
+                            <input type="checkbox" class="filled-in" value="<%=product._id%>" id="<%=product._id%>" name="products">
+                            <label class="white-text" for="<%=product._id%>"><span class="card-title"><%=product.name%></span></label>
+                            <p>Quantity: <%=product.quantity%>, Price: $<%=product.price%></p>
+                        </div>
+                    </div>
+                </div>
+            <% }) %>
         </div>
-        <input type="submit"></input>
+        <button class="btn btn-primary btn-lg waves-effect waves-light" id="submit" type="submit">Submit</button>
     </form>
-</div>
 
-
-<!-- jQuery (required by Materialize) -->
-<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-    crossorigin="anonymous"></script>
-<!-- JavaScript for Materialize -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-<script>
-    $(document).ready(function () {
-        $('select').material_select();
-    });
-</script>
-
-<%- include('./../_partials/footer') %>
+    <%- include('./../_partials/footer') %>

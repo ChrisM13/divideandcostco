@@ -25,7 +25,6 @@ seed.then( () => {
         {name: "Skippy Peanut Butter Creamy-48oz", quantity: 2, price: 11.49, category: "Grocery"},
         {name: "A.1. Steak Sauce", quantity: 4, price: 32.99, category: "Grocery"},
         {name: "Starbucks Coffee House Blend K-Cups", quantity: 128, price: 79.99, category: "Grocery"},
-        {name: "Greenland Mountain Coffee French Vallina K-Cups", quantity: 180, price: 74.99, category: "Grocery"},
         {name: "Red Bull Energy Drink", quantity: 24, price: 40.99, category: "Grocery"},
         {name: "5 Hour Energy ", quantity: 24, price: 35.99, category: "Grocery"},
         {name: "Mobil 1 Motor Oil-10W-30", quantity: 6, price: 36.99, category: "Misc"},

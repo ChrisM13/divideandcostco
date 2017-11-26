@@ -26,8 +26,6 @@ function show(req, res) {
 
 function connection(req, res) {
     if (!req.user) return res.redirect('/');  
-    var oList = [];
-    var uList = [];
     var otherList;
     var userList = req.user.currentList();
     req.user.lists = [req.user.lists.find(list => list._id.equals(userList._id))];
@@ -35,7 +33,7 @@ function connection(req, res) {
         User.findOne({'lists._id': userList.connectedList}).populate('lists.products').exec((err, user) => {
             otherList = user.lists.id(userList.connectedList);
             var matched = commonProducts(userList.products, otherList.products);
-            res.render('costcos/connection', {userList, otherList, user: req.user, matched});
+            res.render('costcos/connection', {userList, otherList, user: req.user, otherUser: user, matched});
         });
     });
 }
