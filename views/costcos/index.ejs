@@ -1,44 +1,30 @@
 <%- include('./../_partials/head') %>
 
 <div class="container">
-    <h1>List of Costcos</h1>
+    <h3>List of Costcos</h3>
 </div>
 
 <div class="container">
-    <div id="map"></div>
+    <div class="row">
+        <div id="map"></div>
+    </div>
 </div>
 
 <div class="container">
-
-    <div class="row">Closest location:
-        A.) <%= costcoData.businesses[0].location.city %>
-        <%= costcoData.businesses[0].location.address1 %>
-        <%= costcoData.businesses[0].location.state %>
-        <%= costcoData.businesses[0].location.zip_code %>
-        <a href="/costcos/<%=costcoData.businesses[0].location.zip_code %>">View/Create List</a>
-        
-    </div>
+    <% costcoData.businesses.forEach((costco) => { %>
     <div class="row">
-        B.) <%= costcoData.businesses[1].location.city %>
-        <%= costcoData.businesses[1].location.address1 %>
-        <%= costcoData.businesses[1].location.state %>
-        <%= costcoData.businesses[1].location.zip_code %>
-        <a href="/costcos/<%=costcoData.businesses[1].location.zip_code %>">View/Create List</a>
-        
-
+        <div class="col s6">
+            <%= costco.location.city %>
+            <%= costco.location.address1 %>
+            <%= costco.location.state %>
+            <%= costco.location.zip_code %>
+        </div>
+        <div class="col s5">
+            <a href="/costcos/<%=costco.location.zip_code %>">View/Create List</a>
+        </div>
     </div>
-    <div class="row">
-        C.) <%= costcoData.businesses[2].location.city %>
-        <%= costcoData.businesses[2].location.address1 %>
-        <%= costcoData.businesses[2].location.state %>
-        <%= costcoData.businesses[2].location.zip_code %>
-        <a href="/costcos/<%=costcoData.businesses[2].location.zip_code %>">View/Create List</a>
-        
-
-    </div>
-
+    <% }); %>
     <a href="/">Back to Search</a>
-
 </div>
 
 <script>
