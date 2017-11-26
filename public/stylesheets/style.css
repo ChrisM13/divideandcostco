@@ -18,3 +18,7 @@ a {
   height: 400px;
   overflow: scroll;
 }
+
+.card {
+  height: 140px;
+}
