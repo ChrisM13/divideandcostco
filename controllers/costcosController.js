@@ -32,10 +32,15 @@ function connection(req, res) {
     req.user.populate({path: 'lists.products'}, (err) => {
         User.findOne({'lists._id': userList.connectedList}).populate('lists.products').exec((err, user) => {
             otherList = user.lists.id(userList.connectedList);
-                res.render('costcos/connection', {userList, otherList, user: req.user});
+            var matched = commonProducts(userList.products, otherList.products);
+            res.render('costcos/connection', {userList, otherList, user: req.user, otherUser: user, matched});
         });
     });
 }
+
+function commonProducts(userProducts, otherProducts) {
+    return userProducts.filter(p => otherProducts.some(product => product._id.equals(p._id)));
+};
 
 module.exports = {
     index,
