@@ -13,7 +13,7 @@
                 <% if (userList.list.zipCode === parseInt(costcoData.businesses[0].location.zip_code)) { %>
                     <div class="row">
                     <!-- Modal Trigger -->
-                        <a class="waves-effect waves-light btn modal-trigger col s8" href="#modal<%= userList.list._id %>"><%=userList.name%> is looking to share <%=userList.list.products.length%> products</a>
+                        <a class="waves-effect waves-light btn modal-trigger col s8 offset-s2" href="#modal<%= userList.list._id %>"><%=userList.name%> is looking to share <%=userList.list.products.length%> products</a>
                     <!-- Modal Structure -->
                     <div id="modal<%= userList.list._id %>" class="modal modal-fixed-footer">
                         <div class="modal-content">
@@ -60,18 +60,16 @@
     </div>
     
 
-    <!-- Create list -->
+    <!-- Create and Update list -->
     <div class="container">
         <div class="row">
-            <a href="/lists/new/<%=costcoData.businesses[0].location.zip_code %>" class="btn">CREATE LIST</a>
+            <a href="/lists/new/<%=costcoData.businesses[0].location.zip_code %>" class="btn col s2 offset-s2">CREATE LIST</a>
+            <!-- Modal Trigger -->
+            <a class="waves-effect waves-light btn modal-trigger col s2 offset-s1" href="#updateList">Update List</a>
         </div>
     </div>
-    <!-- Update list form-->
 
-    <!-- Modal Trigger -->
-    <div class="container">
-        <a class="waves-effect waves-light btn modal-trigger" href="#updateList">Update List</a>
-    </div>
+    <!-- Update list form modal content -->
     <div id="updateList" class="modal">
         <div class="modal-content">
             <div>

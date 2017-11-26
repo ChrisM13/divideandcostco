@@ -1,13 +1,12 @@
 <%- include('./_partials/head') %>
 
   <!-- Main Content -->
-
   <!-- Form for Costco Search -->
   <div class="container">
     <div class="row">
       <form class="col s12" action="/costcos" method="POST">
         <div class="row">
-          <div class="input-field col s6">
+          <div class="input-field col s6 offset-s3">
             <i class="material-icons prefix">location_on</i>
             <input type="text" name="zipCode" pattern="\d{5}" placeholder="Enter a zip code">
           </div>
