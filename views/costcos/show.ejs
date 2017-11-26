@@ -55,29 +55,43 @@
                 </div>
             <% }) %>
         <% }%>
-            <a href="/lists/new/<%=costcoData.businesses[0].location.zip_code %>">CREATE LIST</a>
     </div>
+    
 
+    <!-- Create list -->
+    <div class="container">
+        <div class="row">
+            <a href="/lists/new/<%=costcoData.businesses[0].location.zip_code %>" class="btn">CREATE LIST</a>
+        </div>
+    </div>
     <!-- Update list form-->
-    <div>
-        <% var list = user.currentList(); %>            
-        <form method="POST" action="/lists?_method=PUT" id="updateform">
-            <div class="row">
-                <% products.forEach((product, idx) => { %>
-                    <div class="col s6">
-                        <div class="card blue-grey darken-1">
-                            <div class="card-content white-text">
-                                <input type="checkbox" class="filled-in" value="<%=product._id%>" id="<%=product._id%>" name="products" <%= list.products.some(p => p.equals(product._id)) ? 'checked' : '' %> >
-                                <label class="white-text" for="<%=product._id%>"><span class="card-title"><%=product.name%></span></label>
-                                <p>Quantity: <%=product.quantity%>, Price: $<%=product.price%></p>
+
+    <!-- Modal Trigger -->
+    <div class="container">
+        <a class="waves-effect waves-light btn modal-trigger" href="#updateList">Update List</a>
+    </div>
+    <div id="updateList" class="modal">
+        <div class="modal-content">
+            <div>
+                <% var list = user.currentList(); %>            
+                <form method="POST" action="/lists?_method=PUT" id="updateform">
+                    <div class="row">
+                        <% products.forEach((product, idx) => { %>
+                            <div class="col s6">
+                                <div class="card blue-grey darken-1">
+                                    <div class="card-content white-text">
+                                        <input type="checkbox" class="filled-in" value="<%=product._id%>" id="<%=product._id%>" name="products" <%= list.products.some(p => p.equals(product._id)) ? 'checked' : '' %> >
+                                        <label class="white-text" for="<%=product._id%>"><span class="card-title"><%=product.name%></span></label>
+                                        <p>Quantity: <%=product.quantity%>, Price: $<%=product.price%></p>
+                                    </div>
+                                </div>
                             </div>
+                            <% }) %>
                         </div>
-                    </div>
-                    <% }) %>
-                </div>
-                <button class="btn btn-primary btn-lg waves-effect waves-light" id="submit" type="submit">Submit</button>
-            </form>
-            
+                        <button class="btn btn-primary btn-lg waves-effect waves-light" id="submit" type="submit">Submit</button>
+                </form>
+            </div>
+        </div>
     </div>
 
     <div class="row">
