@@ -3,7 +3,7 @@ var User = require('../models/user');
 var Product = require('../models/product');
 
 function index(req, res) {
-    yelp.findCostco(req.body.zipCode).then(function(costcos) {
+    yelp.findCostco(req.body.zipCode).then(costcos => {
         if (costcos.businesses.length < 3) return res.redirect('/');
         res.render('costcos/index', {costcoData: costcos, user: req.user});
     });
@@ -18,7 +18,7 @@ function show(req, res) {
             list: user.currentList()
         }));
         Product.find({}, (err, products) => {
-            yelp.findCostco(req.params.zip).then(function(costcos) {
+            yelp.findCostco(req.params.zip).then(costcos => {
                 res.render('costcos/show', { allLists: lists, user: req.user, costcoData: costcos, products });
             });
         });
@@ -29,7 +29,7 @@ function connection(req, res) {
     var otherList;
     var userList = req.user.currentList();
     req.user.lists = [req.user.lists.find(list => list._id.equals(userList._id))];
-    req.user.populate({path: 'lists.products'}, (err) => {
+    req.user.populate({path: 'lists.products'}, err => {
         User.findOne({'lists._id': userList.connectedList}).populate('lists.products').exec((err, user) => {
             otherList = user.lists.id(userList.connectedList);
             var matched = commonProducts(userList.products, otherList.products);

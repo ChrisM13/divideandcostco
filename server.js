@@ -9,7 +9,6 @@ var passport = require('passport'); // Passport middleware
 var methodOverride = require('method-override'); // require method override
 
 var index = require('./routes/index');
-var users = require('./routes/users');
 var costcos = require('./routes/costcos');
 var lists = require('./routes/lists');
 var api = require('./routes/api');
@@ -43,7 +42,6 @@ app.use(passport.session());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
-app.use('/users', users);
 app.use('/costcos', costcos);
 app.use('/lists', lists);
 app.use('/api', api);
