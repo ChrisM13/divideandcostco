@@ -7,7 +7,7 @@ function index(req, res) {
         if (costcos.businesses.length < 3) return res.redirect('/');
         res.render('costcos/index', {costcoData: costcos, user: req.user});
     });
-}
+};
 
 function show(req, res) {
     if (!req.user) return res.redirect('/');
@@ -22,7 +22,8 @@ function show(req, res) {
                 res.render('costcos/show', { allLists: lists, user: req.user, costcoData: costcos, products });
             });
         });
-})};
+    });
+};
 
 function connection(req, res) {
     if (!req.user) return res.redirect('/');  
@@ -36,7 +37,7 @@ function connection(req, res) {
             res.render('costcos/connection', {userList, otherList, user: req.user, otherUser: user, matched});
         });
     });
-}
+};
 
 function commonProducts(userProducts, otherProducts) {
     return userProducts.filter(p => otherProducts.some(product => product._id.equals(p._id)));

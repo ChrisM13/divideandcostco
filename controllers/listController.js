@@ -26,14 +26,14 @@ function update(req, res) {
     list.products = req.body.products;
     req.user.save();
     res.redirect(`/costcos/${list.zipCode}`);
-}
+};
 
 function destroy(req, res) {
     var list = req.user.currentList();
     list.products.remove(req.params.productId);
     req.user.save();
     res.redirect(`/costcos/${list.zipCode}`);
-}
+};
 
 function connect(req, res) {
     var otherList;
@@ -49,7 +49,7 @@ function connect(req, res) {
             res.redirect(`/costcos/${userList.zipCode}/connection`);
         });
     });
-}
+};
 
 module.exports = {
     show,

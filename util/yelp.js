@@ -15,4 +15,4 @@ function findCostco(zip) {
 
 module.exports = {
     findCostco
-}
+};
