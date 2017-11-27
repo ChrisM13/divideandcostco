@@ -1,6 +1,7 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-family: 'Righteous', cursive;
 }
 
 a {
@@ -16,4 +17,8 @@ a {
 #updateform {
   height: 400px;
   overflow: scroll;
+}
+
+.card {
+  height: 140px;
 }
