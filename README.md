@@ -25,7 +25,7 @@ This app was planned using [Trello](https://trello.com/b/kxgHzXn6/pineapple-drea
 
 # Technologies Used
 
-This app was built using Javascript and HTML/CSS. It uses a MEAN stack (MongoDB, Express, Node). It utilizes the Yelp API and Google Maps API.
+This app was built using Javascript and HTML/CSS. It uses a MEN stack (MongoDB, Express, Node). It utilizes the Yelp API and Google Maps API.
 
 # Installation
 
