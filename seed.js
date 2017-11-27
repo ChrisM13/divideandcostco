@@ -21,7 +21,7 @@ seed.then( () => {
         {name: "Kirkland Mediterranean Oil-3 Liter", quantity: 2, price: 27.99, category: "Home/Kitchen"},
         {name: "Nonghim Gourmet Noodles", quantity: 16, price: 14.99, category: "Grocery"},
         {name: "Nutella Hazelnut", quantity: 2, price: 13.99, category: "Grocery"},
-        {name: "Hidden Valley Rnach Dressing", quantity: 2, price: 11.79, category: "Grocery"},
+        {name: "Hidden Valley Ranch Dressing", quantity: 2, price: 11.79, category: "Grocery"},
         {name: "Skippy Peanut Butter Creamy-48oz", quantity: 2, price: 11.49, category: "Grocery"},
         {name: "A.1. Steak Sauce", quantity: 4, price: 32.99, category: "Grocery"},
         {name: "Starbucks Coffee House Blend K-Cups", quantity: 128, price: 79.99, category: "Grocery"},
