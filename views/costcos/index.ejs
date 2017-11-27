@@ -27,7 +27,7 @@
     <a href="/">Back to Search</a>
 </div>
 
-<script>
+<script defer>
     function initMap() {
       var current = {lat: <%= costcoData.businesses[0].coordinates.latitude %>, lng: <%= costcoData.businesses[0].coordinates.longitude %>}
       var map = new google.maps.Map(document.getElementById('map'), {
