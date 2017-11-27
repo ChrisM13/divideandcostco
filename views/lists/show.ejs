@@ -9,11 +9,14 @@
                         <div class="card-content white-text">
                             <input type="checkbox" class="filled-in" value="<%=product._id%>" id="<%=product._id%>" name="products">
                             <label class="white-text" for="<%=product._id%>"><span class="card-title"><%=product.name%></span></label>
-                            <p>Quantity: <%=product.quantity%>, Price: $<%=product.price%></p>
+                            <p>Quantity:
+                                <%=product.quantity%>, Price: $
+                                    <%=product.price%>
+                            </p>
                         </div>
                     </div>
                 </div>
-            <% }) %>
+                <% }) %>
         </div>
         <button class="btn btn-primary btn-lg waves-effect waves-light" id="submit" type="submit">Submit</button>
     </form>
