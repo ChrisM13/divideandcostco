@@ -5,7 +5,7 @@ var listSchema = new mongoose.Schema(
         products: [{type: mongoose.Schema.Types.ObjectId, ref: 'Product'}],
         zipCode: Number,
         isActive: {type: Boolean, default: true},
-        connectedList: mongoose.Schema.Types.ObjectId
+        connectedList: {type: mongoose.Schema.Types.ObjectId, default: null}
     },
     {
         timestamps: true
