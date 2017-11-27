@@ -1,7 +1,7 @@
 
-# Divide And Costco
+# Divide and Costco
 
-Divide and Costco is an app that allows costco shoppers to connect for savings. It allows two customers to connect shopping lists to split large quantity products. That way you reduce waste while also saving money on the items you need. 
+Divide and Costco is an app that allows Costco shoppers to connect for savings. It allows two customers to connect shopping lists to split large quantity products. That way you reduce waste while also saving money on the items you need. 
 
 Built utilizing the Yelp and Google Map API's, you can use your map to navigate to the closest Costco's in your area, see what lists have been created there, and decide accordingly which one you would like to shop at. If one location's customer has more items you wish to split you have the option to decide to go there instead.
 
@@ -14,6 +14,53 @@ This app is best deployed while planning a trip to Costco. Select your desired l
 # Planning
 
 This app was planned using [Trello](https://trello.com/b/kxgHzXn6/pineapple-dream) and Google Documents.
+
+# Models
+## User Model
+```javascript
+var listSchema = new mongoose.Schema(
+    {
+        products: [{type: mongoose.Schema.Types.ObjectId, ref: 'Product'}],
+        zipCode: Number,
+        isActive: {type: Boolean, default: true},
+        connectedList: mongoose.Schema.Types.ObjectId
+    },
+    {
+        timestamps: true
+    }
+);
+
+var userSchema = new mongoose.Schema(
+    {
+        name: String,
+        email: String,
+        avatar: String,
+        googleId: String,
+        lists: [listSchema]
+    },
+    {
+        timestamps: true
+    }
+);
+```
+
+## Product Model
+```javascript
+var productSchema = new mongoose.Schema (
+    {
+        name: String,
+        quantity: Number,
+        price: Number,
+        category: {
+            type: String,
+            enum: ['Grocery', 'Home/Kitchen', 'Bath', 'Misc']
+        }
+    },
+    {
+        timestamps: true
+    }
+);
+```
 
 # Screenshots
 

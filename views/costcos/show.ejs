@@ -63,11 +63,11 @@
     <!-- Create and Update list -->
     <div class="container">
         <div class="row">
-            <a href="/lists/new/<%=costcoData.businesses[0].location.zip_code %>" class="btn col s2 offset-s2">CREATE LIST</a>
+            <a href="/lists/new/<%=costcoData.businesses[0].location.zip_code %>" class="btn col s2 offset-s3">CREATE LIST</a>
             <!-- Modal Trigger -->
             <% var list = user.currentList(); %>
             <% if (list.zipCode === parseInt(costcoData.businesses[0].location.zip_code)) { %>
-            <a class="waves-effect waves-light btn modal-trigger col s2 offset-s1" href="#updateList">Update List</a>
+            <a class="waves-effect waves-light btn modal-trigger col s2 offset-s2" href="#updateList">Update List</a>
             <% } %>
         </div>
     </div>
