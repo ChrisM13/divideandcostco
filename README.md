@@ -16,7 +16,7 @@ This app is best deployed while planning a trip to Costco. Select your desired l
 This app was planned using [Trello](https://trello.com/b/kxgHzXn6/pineapple-dream) and Google Documents.
 
 # Models
-## User Model
+### User Model
 ```javascript
 var listSchema = new mongoose.Schema(
     {
@@ -44,7 +44,7 @@ var userSchema = new mongoose.Schema(
 );
 ```
 
-## Product Model
+### Product Model
 ```javascript
 var productSchema = new mongoose.Schema (
     {
@@ -97,9 +97,9 @@ We would like to continue adding more user functionality. A more complete connec
 
 # Authors
 
-Alex Wong
-Chris Mosier
-Dylan Corbett
-Michael Goode, Esq.
+* Alex Wong
+* Chris Mosier
+* Dylan Corbett
+* Michael Goode, Esq.
 
 
