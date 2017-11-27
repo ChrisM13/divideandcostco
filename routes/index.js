@@ -4,7 +4,7 @@ var passport = require('passport');
 var yelpCtrl = require('./../util/yelp');
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
+router.get('/', (req, res, next) => {
   res.render('index', { user: req.user, costcoData: null });
 });
 
