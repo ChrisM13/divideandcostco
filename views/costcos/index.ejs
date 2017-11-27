@@ -1,7 +1,7 @@
 <%- include('./../_partials/head') %>
 
 <div class="container">
-    <h3>List of Costcos</h3>
+    <h3>Closest Costcos</h3>
 </div>
 
 <div class="container">
@@ -13,18 +13,20 @@
 <div class="container">
     <% costcoData.businesses.forEach((costco) => { %>
     <div class="row">
-        <div class="col s6">
+        <div class="col s8">
+            <h5>
             <%= costco.location.city %>
             <%= costco.location.address1 %>
             <%= costco.location.state %>
             <%= costco.location.zip_code %>
+            </h5>
         </div>
-        <div class="col s5">
-            <a href="/costcos/<%=costco.location.zip_code %>">View/Create List</a>
+        <div class="col s4">
+            <a href="/costcos/<%=costco.location.zip_code %>" class="btn">View/Create List</a>
         </div>
     </div>
     <% }); %>
-    <a href="/">Back to Search</a>
+    <a href="/" class="btn">Back to Search</a>
 </div>
 
 <script defer>
