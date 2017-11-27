@@ -2,10 +2,13 @@ require('dotenv').config();
 
 // Require the database
 require('./config/db');
+
 // require Product model
 var Product = require('./models/product');
+
 // Destroy all data
 var seed = Promise.all([Product.remove({})]);
+
 // Create products
 seed.then( () => {
     return Product.create([

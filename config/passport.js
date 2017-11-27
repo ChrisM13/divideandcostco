@@ -8,8 +8,8 @@ passport.use(new GoogleStrategy(
         clientSecret: process.env.GOOGLE_SECRET,
         callbackURL: process.env.GOOGLE_CALLBACK
     },
-    function(accessToken, refreshToken, profile, cb) {
-        User.findOne({'googleId': profile.id}, function(err, user) {
+    (accessToken, refreshToken, profile, cb) => {
+        User.findOne({'googleId': profile.id},(err, user) => {
             if (err) return cb(err);
             if (user) {
                 return cb(null, user);
@@ -20,7 +20,7 @@ passport.use(new GoogleStrategy(
                     avatar: profile.photos[0].value,
                     googleId: profile.id
                 });
-                newUser.save(function(err) {
+                newUser.save(err => {
                     if (err) return cb(err);
                     return cb(null, newUser);
                 });
@@ -29,12 +29,12 @@ passport.use(new GoogleStrategy(
     }
 ));
 
-passport.serializeUser(function(user, done) {
+passport.serializeUser((user, done) => {
     done(null, user.id);
 });
 
-passport.deserializeUser(function(id, done) {
-    User.findById(id, function(err, user) {
+passport.deserializeUser((id, done) => {
+    User.findById(id, (err, user) => {
         done(err, user);
     });
 });
