@@ -91,6 +91,9 @@ GOOGLE_MAP_KEY=<your google map key>
 5. Run ```npm start```
 6. Navigate to ```localhost:3000``` in your browser.
 
+# API Endpoint
+```GET https://divide-and-costco.herokuapp.com/api/lists```
+
 # Next Steps
 
 We would like to continue adding more user functionality. A more complete connection page that allows for a customer to have better access to the person they are connected to. More editable user profiles. A more graphically pleasing user experience.
