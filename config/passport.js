@@ -22,7 +22,7 @@ passport.use(new GoogleStrategy(
                     lists: [{
                         products: [],
                         zipCode: 0,
-                        isActive: false,
+                        isActive: true,
                         connectedList: null
                     }]
                 });
