@@ -18,7 +18,13 @@ passport.use(new GoogleStrategy(
                     name: profile.displayName,
                     email: profile.emails[0].value,
                     avatar: profile.photos[0].value,
-                    googleId: profile.id
+                    googleId: profile.id,
+                    lists: [{
+                        products: [],
+                        zipCode: 0,
+                        isActive: true,
+                        connectedList: null
+                    }]
                 });
                 newUser.save(function(err) {
                     if (err) return cb(err);

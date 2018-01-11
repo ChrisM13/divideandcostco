@@ -25,6 +25,9 @@
 
     This app was planned using [Trello](https://trello.com/b/kxgHzXn6/pineapple-dream) and Google Documents. This was a group project.
 
+# API Endpoint
+```GET https://divide-and-costco.herokuapp.com/api/lists```
+
 # Next Steps
 
 
